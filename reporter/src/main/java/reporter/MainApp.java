@@ -21,8 +21,6 @@ public class MainApp {
 	
 	
 	
-	// raport D:/Dane/ -y 2018 -m 01 03 12 -d monday -u Kowalski_Jan Nowak_Jan -p Projekt1 -t PerProjekt -o xls
-	public static void runApp(String kalatlog, String project)  {}
 	
 	
 	
@@ -54,7 +52,8 @@ public class MainApp {
 		return null;
 	}
 		
-		public static void runApp (String kalatlog) throws FileNotFoundException, IOException  {
+		// raport typ1  suma po poszczególnych pracownikach
+		public static void runAppRap1 (String kalatlog) throws FileNotFoundException, IOException  {
 			files = getFiles(kalatlog);
 			System.out.println(files.toString());
 			data = getData(files);
@@ -62,6 +61,11 @@ public class MainApp {
 			reportResult = getReport();
 		}
 			
+		// raport D:/Dane/ -y 2018 -m 01 03 12 -d monday -u Kowalski_Jan Nowak_Jan -p Projekt1 -t PerProjekt -o xls
+		// raport typ 2 suma po poszczególnyhch projektach 
+		public static void runAppRap2(String kalatlog)  {}
+
+		public static void runAppRap2(String kalatlog, int rok)  {}
 			
 			
 			
@@ -69,4 +73,5 @@ public class MainApp {
 		}
 	
 	
+
 
