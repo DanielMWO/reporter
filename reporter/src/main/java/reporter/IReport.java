@@ -6,6 +6,6 @@ import java.util.ArrayList;
 public interface IReport {
 	
 	
-	public ArrayList<Record> printRaport (Date date, String task, String projectName, String firstName, String lastName);;
+	public ArrayList<Record> getReport (Date date, String task, String projectName, String firstName, String lastName);;
 
 }
