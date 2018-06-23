@@ -4,6 +4,8 @@
 package reporter;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -33,23 +35,31 @@ public class MainApp {
 	}
 	// Przekazanie listy plików i otrzymanie wynikow
 	
-	private static ArrayList<Record> getData (ArrayList<File> files) {
+	private static ArrayList<Record> getData (ArrayList<File> files) throws FileNotFoundException, IOException {
 		IExcelParser parser = new ExcelParser();
-		ArrayList<Record> data = parser.GetAllRecords(files);
-		return data;
+		ArrayList<Record> data;
+		try {
+			data = parser.GetAllRecords(files);
+			return data;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	return null;
 	}
 	
 	// Przekazanie Danych do Raportu i odebranie paczki danych 
 	private static ArrayList<Record> getReport(){
 		IReport report = new Report1();
 		//ArrayList<Record> reportData = report.getReport(date, task, projectName, firstName, lastName);
-		return null
+		return null;
 	}
 		
-		public static void runApp (String kalatlog)  {
+		public static void runApp (String kalatlog) throws FileNotFoundException, IOException  {
 			files = getFiles(kalatlog);
 			System.out.println(files.toString());
-			
+			data = getData(files);
+			System.out.println(data.toString());
+			reportResult = getReport();
 		}
 			
 			
