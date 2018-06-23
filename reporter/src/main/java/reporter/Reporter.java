@@ -8,8 +8,10 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.DefaultParser;
 
+@SuppressWarnings("deprecation")
 public class Reporter {
 
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		
 		Option help = new Option ("help", "display Help");

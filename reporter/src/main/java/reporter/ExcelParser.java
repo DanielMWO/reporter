@@ -39,11 +39,11 @@ public class ExcelParser implements IExcelParser {
 					
 					int numberOfRows = sheet.getPhysicalNumberOfRows();					
 					
-					for(int j = 0; j < numberOfRows - 1; i++) {
+					for(int j = 1; j < numberOfRows - 1; j++) {
 						
 						row = sheet.getRow(j);
 						
-						String fileName = file.getName();
+						String fileName = file.getName().substring(0, file.getName().lastIndexOf("."));
 						
 						String[] fullName = fileName.split("\\_"); 					
 						
@@ -52,8 +52,8 @@ public class ExcelParser implements IExcelParser {
 								row.getCell(1).getStringCellValue(),
 								(int)row.getCell(2).getNumericCellValue(),
 								sheet.getSheetName(),
-								fullName[0],
-								fullName[1]);
+								fullName[1],
+								fullName[0]);
 						
 						records.add(record);					
 					}					
