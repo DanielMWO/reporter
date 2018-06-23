@@ -56,14 +56,14 @@ public class Reporter {
 		
 		Options options = new Options();
 		options.addOption( help );
-		options.addOption( data );
+		options.addOption( data );//
 		options.addOption( years );
 		options.addOption( months );
 		options.addOption( days );
-		options.addOption( users );
-		options.addOption( projects );
+		options.addOption( users );//
+		options.addOption( projects );//
 		options.addOption( type );
-		options.addOption( output );
+		options.addOption( output );//
 			
 		// create the parser
 		CommandLineParser parser = new DefaultParser();
