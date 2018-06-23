@@ -17,7 +17,10 @@ public class FileFinder {
 			}
 		}
 		else {
-			fileList.add(directory);
+			String fileName = directory.getName();
+			if (fileName.contains(".xls")) {
+				fileList.add(directory);
+			}
 		}		
 	}
 	
@@ -33,7 +36,8 @@ public class FileFinder {
 	}
 	
 	/*public static void main(String[] args) {
-		FileFinder ff = new FileFinder("c:/Users/Student38/Desktop/projekt/drzewko");
+		//FileFinder ff = new FileFinder("c:/Users/Student38/Desktop/projekt/drzewko");
+		FileFinder ff = new FileFinder("src/main/resources");
 		for (File f : ff.getFileList()) {
 			System.out.println(f.getAbsolutePath());
 		}
