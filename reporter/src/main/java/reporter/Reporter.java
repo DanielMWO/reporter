@@ -64,23 +64,25 @@ public class Reporter {
 		options.addOption( projects );
 		options.addOption( type );
 		options.addOption( output );
-		
 			
 		// create the parser
 		CommandLineParser parser = new DefaultParser();
 		try {
 	        // parse the command line arguments
 	        CommandLine line = parser.parse( options, args );
+	        
+	        // has the data argument been passed?
+	        if( line.hasOption( "data" ) ) {
+	        	String data1 = line.getOptionValue( "data" );
+	        
+
+	        }
 	    }
 	    catch( ParseException exp ) {
 	        // oops, something went wrong
 	        System.err.println( "Parsing failed.  Reason: " + exp.getMessage() );
 
-	     // has the data argument been passed?
-	    if( line.hasOption( "data" ) ) {
-	       // initialise the member variable
-	       this.buildfile = line.getOptionValue( "data" );
-	    }
+	     
 	        
 	        
 		
