@@ -11,11 +11,14 @@ import reporter.Repository;
 
 public class VisualizationConsole {
 	
-	public void PrintResult() {
+	public void PrintResult(RaportOutput report) {
 		IRepository repo = new Repository();
+
+		RaportOutput output = report;
 		
-		RaportOutput output = repo.getRaportOneOutput();
-		
+		if(report == null)
+			output = repo.getRaportOneOutput();
+						
 		List<RaportField> rowsList = output.getRaportFields();
 		
 		List<List<String>> model = new ArrayList<List<String>>();
