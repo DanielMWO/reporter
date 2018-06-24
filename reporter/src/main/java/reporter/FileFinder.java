@@ -27,6 +27,9 @@ public class FileFinder {
 	public FileFinder(String root) {
 		this.root = root;
 		this.rootFile = new File(root);
+		if (!(rootFile.exists())) {
+			System.out.println("Path does not exist!");
+		}
 		this.fileList = new ArrayList<File>();
 		generateFileList(rootFile);
 	}
@@ -35,12 +38,12 @@ public class FileFinder {
 		return fileList;
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		//FileFinder ff = new FileFinder("c:/Users/Student38/Desktop/projekt/drzewko");
-		FileFinder ff = new FileFinder("src/main/resources");
+		FileFinder ff = new FileFinder("src/main/ressources");
 		for (File f : ff.getFileList()) {
 			System.out.println(f.getAbsolutePath());
 		}
-	}
+	}*/
 	
 }
