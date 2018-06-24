@@ -10,6 +10,7 @@ import reporter.RaportOutput;
 import reporter.Repository;
 
 public class VisualizationConsole {
+	
 	public void PrintResult() {
 		IRepository repo = new Repository();
 		
@@ -28,7 +29,7 @@ public class VisualizationConsole {
 			model.add((ArrayList<String>) columns);
 		}		
 		
-		List<String> headersList = Arrays.asList(output.getHeader(), "HOURS");
+		List<String> headersList = Arrays.asList(output.getHeader().toUpperCase(), "HOURS");
 		List<List<String>> rowsListToPrint = model;
 		
 		
