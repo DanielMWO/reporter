@@ -44,13 +44,12 @@ public class FileFinder {
 		return fileList;
 	}
 	
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		//FileFinder ff = new FileFinder("c:/Users/Student38/Desktop/projekt/drzewko");
-		FileFinder ff = new FileFinder("src/main/ressources");
+		FileFinder ff = new FileFinder("src/main/resources/2012/01");
 		for (File f : ff.getFileList()) {
 			System.out.println(f.getAbsolutePath());
 		}
-<<<<<<< HEAD
 		
 		IExcelParser parser = new ExcelParser();
 		
@@ -76,11 +75,11 @@ public class FileFinder {
 		}
 		
 		for(Record rec : records) {
-			System.out.println(rec.FirstName);
+			System.out.println(rec.FirstName + " " + rec.ProjectName + " " + rec.Task);
+			
 		}
 	}
-=======
-	}*/
-	
->>>>>>> a1856f2c6f3b05b7b3d603954bb6f501daad23d5
+
 }
+	
+
