@@ -24,14 +24,14 @@ public class MainApp {
 	
 	
 	
-	// Podanie "root" dirtectory  i odepbrtanie losty plików 
+	// Podanie "root" dirtectory  i odepbrtanie losty plikï¿½w 
 	
 	private static ArrayList<File> getFiles(String root) {
 		FileFinder fileFinder = new FileFinder(root);
 		ArrayList<File> files = fileFinder.getFileList();
 		return files;
 	}
-	// Przekazanie listy plików i otrzymanie wynikow
+	// Przekazanie listy plikï¿½w i otrzymanie wynikow
 	
 	private static ArrayList<Record> getData (ArrayList<File> files) throws FileNotFoundException, IOException {
 		IExcelParser parser = new ExcelParser();
@@ -46,13 +46,29 @@ public class MainApp {
 	}
 	
 	// Przekazanie Danych do Raportu i odebranie paczki danych 
-	private static ArrayList<Record> getReport(){
+	private static ArrayList<Record> getReport(int type){
+		switch(type) {
+		
+		case 1:
+			
+			IReport report = new Report1();
+			//ArrayList<Record> reportData = report.getReport(date, task, projectName, firstName, lastName);
+			return null;
+			
+		case 2:
+			
+			IReport report = new Report1();
+			//ArrayList<Record> reportData = report.getReport(date, task, projectName, firstName, lastName);
+			return null;
+		
+		}
+		
 		IReport report = new Report1();
 		//ArrayList<Record> reportData = report.getReport(date, task, projectName, firstName, lastName);
 		return null;
 	}
 		
-		// raport typ1  suma po poszczególnych pracownikach
+		// raport typ1  suma po poszczegï¿½lnych pracownikach
 		public static void runAppRap1 (String kalatlog) throws FileNotFoundException, IOException  {
 			files = getFiles(kalatlog);
 			System.out.println(files.toString());
@@ -62,9 +78,18 @@ public class MainApp {
 		}
 			
 		// raport D:/Dane/ -y 2018 -m 01 03 12 -d monday -u Kowalski_Jan Nowak_Jan -p Projekt1 -t PerProjekt -o xls
-		// raport typ 2 suma po poszczególnyhch projektach 
-		public static void runAppRap2(String kalatlog)  {}
+		// raport typ 2 suma po poszczegï¿½lnyhch projektach 
+		
+		public static void runAppRap2(String kalatlog)  {
+			files = getFiles(kalatlog);
+			System.out.println(files.toString());
+			data = getData(files);
+			System.out.println(data.toString());
+			reportResult = getReport();
+		}
 
+		
+		
 		public static void runAppRap2(String kalatlog, int rok)  {}
 			
 			
