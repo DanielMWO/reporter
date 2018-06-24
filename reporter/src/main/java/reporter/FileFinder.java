@@ -46,7 +46,7 @@ public class FileFinder {
 	
 	public static void main(String[] args) {
 		//FileFinder ff = new FileFinder("c:/Users/Student38/Desktop/projekt/drzewko");
-		FileFinder ff = new FileFinder("src/main/resources/2012/01");
+		FileFinder ff = new FileFinder("src/main/resources");
 		for (File f : ff.getFileList()) {
 			System.out.println(f.getAbsolutePath());
 		}
