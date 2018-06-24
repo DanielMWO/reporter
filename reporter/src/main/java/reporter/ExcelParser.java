@@ -38,7 +38,6 @@ public class ExcelParser implements IExcelParser {
 					sheet = wb.getSheetAt(i);
 					
 					int numberOfRows = sheet.getPhysicalNumberOfRows();	
-					System.out.println(file.getName() + " " + sheet.getSheetName() + " " + numberOfRows);
 					
 					if (numberOfRows<=1) {
 						throw new Exception ("Uwaga, pusty arkusz nr: "+ numberOfSheets + " w pliku: " + file);
@@ -48,21 +47,21 @@ public class ExcelParser implements IExcelParser {
 						
 						row = sheet.getRow(j);
 						
+						int intCellValue = 0;
+						
 						//sprawdzanie poprawności komórek
-						if (String.valueOf(row.getCell(2).getNumericCellValue()) == "") {
-							((Cell) row).setCellValue("0");
+						if (!(row.getCell(2) == null || row.getCell(2).getNumericCellValue() == 0)) {
+							intCellValue = (int)row.getCell(2).getNumericCellValue();
 						}
 						
 						String fileName = file.getName().substring(0, file.getName().lastIndexOf("."));
 						
 						String[] fullName = fileName.split("\\_"); 					
 						
-						System.out.println((int)row.getCell(2).getNumericCellValue());
-						
 						Record record = new Record(
 								row.getCell(0).getDateCellValue(),
 								row.getCell(1).getStringCellValue(),
-								(int)row.getCell(2).getNumericCellValue(),
+								intCellValue,
 								sheet.getSheetName(),
 								fullName[1],
 								fullName[0]);
