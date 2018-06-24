@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import VisualizationConsole.VisualizationConsole;
+import VisualizationPlots.VisualizationPlots;
 
 /**
  * @author Daniel
@@ -92,6 +93,29 @@ public class MainApp {
 		reportResult = getReport(2, data, options);
 		VisualizationConsole console = new VisualizationConsole();
 		console.PrintResult(reportResult);
+	}
+	
+
+	public static void runAppRap2(String kalatlog, String wizualizacja, HashMap<String, String> options) throws FileNotFoundException, IOException {
+		files = getFiles(kalatlog);
+		//System.out.println(files.toString());
+		data = getData(files);
+		//System.out.println(data.toString());
+		reportResult = getReport(2, data, options);
+		switch (wizualizacja) {
+		case "1" :
+		
+			VisualizationConsole console = new VisualizationConsole();
+			console.PrintResult(reportResult);
+			
+		case "2" :
+			VisualizationPlots plots = new VisualizationPlots();
+			plots.PrintResult(); // add costam
+			
+		default :
+			VisualizationConsole console2 = new VisualizationConsole();
+			console2.PrintResult(reportResult);
+		}
 	}
 
 	public static void runAppRap2(String kalatlog, int rok) {
