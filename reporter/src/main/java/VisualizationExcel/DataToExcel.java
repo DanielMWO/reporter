@@ -87,16 +87,16 @@ public class DataToExcel {
 		}
 	}
 
-//	public static void main(String[] args) throws IOException, InvalidFormatException {
-//		String[] columns = { "Employee", "Hours" };
-//		
-//		Repository repo = new Repository();
-//		
-//		RaportOutput raportOutput = repo.getRaportOneOutput();
-//				
-//		DataToExcel excel = new DataToExcel();
-//		
-//		excel.writeRaportToExcel(raportOutput, columns);
-//	}
+/*public static void main(String[] args) throws IOException, InvalidFormatException {
+		//String[] columns = { "Employee", "Hours" };
+		
+		Repository repo = new Repository();
+		
+		RaportOutput raportOutput = repo.getRaportOneOutput();
+				
+		DataToExcel excel = new DataToExcel();
+		
+		excel.writeRaportToExcel(raportOutput, raportOutput.getRaportHeaders());
+	}*/
 
 }
