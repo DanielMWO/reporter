@@ -1,5 +1,8 @@
 package reporter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.Option;
@@ -75,22 +78,38 @@ public class Reporter {
 	        
 	        // has the data argument been passed?
 	        if( line.hasOption( "data" ) ) {
-	        	String data1 = line.getOptionValue( "data" );
-	        
+	        	if( line.hasOption( "type" ) ) {
+		        	String data1 = line.getOptionValue( "data" );
+		        	String type1 = line.getOptionValue( "type" );
+		        	if (type1 == "PerPerson") {
+		        		MainApp.runAppRap1(data1);
+		        	}
+		        	if (type1 == "PerProjekt") {
+		        		MainApp.runAppRap2(data1);
+		        	}
+
+		        }
 
 	        }
 	    }
 	    catch( ParseException exp ) {
 	        // oops, something went wrong
 	        System.err.println( "Parsing failed.  Reason: " + exp.getMessage() );
-
-	     
+	     } 
+		catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	        
 	        
 		
 		// TODO Auto-generated method stub
 		System.out.println("elo");
-	    }
+	    
 
 	}
 }
