@@ -6,7 +6,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import reporter.RaportField;
 import reporter.RaportOutput;
+import reporter.Repository;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,18 +22,14 @@ public class DataToExcel {
 	
 	// Initializing data to insert into the excel file
 
-	public static void writeRaportToExcel(String fileName, RaportOutput output) {
+	public void writeRaportToExcel(RaportOutput output, String[] columns) {
 		// Create a Workbook
 		Workbook workbook = new XSSFWorkbook(); // new HSSFWorkbook() for generating `.xls` file
 
-		/*
-		 * CreationHelper helps us create instances of various things like DataFormat,
-		 * Hyperlink, RichTextString etc, in a format (HSSF, XSSF) independent way
-		 */
 		CreationHelper createHelper = workbook.getCreationHelper();
 
 		// Create a Sheet
-		Sheet sheet = workbook.createSheet("Report2");
+		Sheet sheet = workbook.createSheet(output.getHeader());
 
 		// Create a Font for styling header cells
 		Font headerFont = workbook.createFont();
@@ -45,7 +43,7 @@ public class DataToExcel {
 
 		// Create a Row
 		Row headerRow = sheet.createRow(0);
-
+						
 		// Create cells
 		for (int i = 0; i < columns.length; i++) {
 			Cell cell = headerRow.createCell(i);
@@ -55,20 +53,17 @@ public class DataToExcel {
 
 		// Create Cell Style for formatting Date
 		CellStyle dateCellStyle = workbook.createCellStyle();
-		dateCellStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd-MM-yyyy"));
+		dateCellStyle.setDataFormat(createHelper.createDataFormat().getFormat("MM-dd-yyyy"));
 
+		List<RaportField> fields = output.getRaportFields();
+		
 		// Create Other rows and cells with employees data
 		int rowNum = 1;
-		for (RaportOutput RaportOutput : raportFields) {
+		for (RaportField field : fields) {
 			Row row = sheet.createRow(rowNum++);
-
-			/*
-			 * Cell dateOfBirthCell = row.createCell(2);
-			 * dateOfBirthCell.setCellValue(employee.getDateOfBirth());
-			 * dateOfBirthCell.setCellStyle(dateCellStyle);
-			 * 
-			 * row.createCell(3) .setCellValue(employee.getSalary());
-			 */
+			
+			row.createCell(0).setCellValue(field.getRaportUnit());
+			row.createCell(1).setCellValue(field.getNumberOfHours());			
 		}
 
 		// Resize all columns to fit the content size
@@ -77,23 +72,31 @@ public class DataToExcel {
 		}
 
 		// Write the output to a file
-		FileOutputStream fileOut = new FileOutputStream("Report.xlsx");
-		workbook.write(fileOut);
-		fileOut.close();
-
-		// Closing the workbook
-		workbook.close();
-	}
-
-	public static void main(String[] args) throws IOException, InvalidFormatException {
-		String[] columns = { "Project name", "hours" };
-		List<RaportField> fields = new LinkedList<RaportField>();
-		for (int i = 0; i < 10; i++) {
-			RaportField field = new RaportField("test", i);
-			fields.add(field);
+		FileOutputStream fileOut;
+		try {
+			fileOut = new FileOutputStream(output.getHeader()+".xls");
+			workbook.write(fileOut);
+			fileOut.close();
+			workbook.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		RaportOutput raportOutput = new RaportOutput("Header", fields);
-		writeRaportToExcel("Report.xls", raportOutput);
 	}
+
+//	public static void main(String[] args) throws IOException, InvalidFormatException {
+//		String[] columns = { "Employee", "Hours" };
+//		
+//		Repository repo = new Repository();
+//		
+//		RaportOutput raportOutput = repo.getRaportOneOutput();
+//				
+//		DataToExcel excel = new DataToExcel();
+//		
+//		excel.writeRaportToExcel(raportOutput, columns);
+//	}
 
 }

@@ -48,7 +48,8 @@ public class FileFinder {
 	
 	public static void main(String[] args) {
 		//FileFinder ff = new FileFinder("c:/Users/Student38/Desktop/projekt/drzewko");
-		FileFinder ff = new FileFinder("src/main/resources");
+		//FileFinder ff = new FileFinder("src/main/resources");
+		FileFinder ff = new FileFinder("src/main/resources/2012/01");
 		for (File f : ff.getFileList()) {
 			System.out.println(f.getAbsolutePath());
 		}
@@ -75,13 +76,18 @@ public class FileFinder {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		}		
+			
 						
 		VisualizationConsole vis = new VisualizationConsole();
 		
-		vis.PrintResult();
-				
-	}
+		//vis.PrintResult();
+		
+		for (Record r:records)
+		{		
+			System.out.println(r.FirstName + " " + r.ProjectName + " " + r.Task);
+		}	
 
+	}
+}
 	
 
