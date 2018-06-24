@@ -29,12 +29,12 @@ public class Reporter {
 		
 		Option years   = OptionBuilder.withArgName( "years" )
                 .hasArg()
-                .withDescription(  "use given years for report (e.g. 2018)" )
+                .withDescription(  "use given years for report (e.g. 2018 or 2017 2018)" )
                 .create( "y" );
 		
 		Option months   = OptionBuilder.withArgName( "months" )
                 .hasArg()
-                .withDescription(  "use given months for report (e.g 03)" )
+                .withDescription(  "use given months for report (e.g 03 or 03 05 12)" )
                 .create( "m" );
 		
 		Option days   = OptionBuilder.withArgName( "days" )
@@ -57,9 +57,9 @@ public class Reporter {
                 .withDescription(  "type of report (PerProjekt or PerPerson) " )
                 .create( "t" );
 		
-		Option output   = OptionBuilder.withArgName( "output type (e.g. xls)" )
+		Option output   = OptionBuilder.withArgName( "output" )
                 .hasArg()
-                .withDescription(  "type of output for report" )
+                .withDescription(  "type of output for report(console or graph or xls)" )
                 .create( "o" );
 		
 		Options options = new Options();
@@ -84,7 +84,7 @@ public class Reporter {
 	        
 	        // has the path argument been passed?
 	        
-	        Map<String, String> myMap = new HashMap<String, String>();
+	        HashMap<String, String> myMap = new HashMap<String, String>();
 	        
 	        if( line.hasOption( "y" ) ) {
 	        	String years1 = line.getOptionValue( "y" );
@@ -110,8 +110,8 @@ public class Reporter {
 	       if( line.hasOption( "help" ) ) {
 	        	
 
-	           String header = "................................HELP...............................";
-	            String footer = ".................................................................. ";
+	            String header = "................................HELP...............................";
+	            String footer = "..................................................................."+"\n"+"command example: -path src/main/resources/2012 -y 2012 -m may -d monday -u Kowalski_Jan -p Projekt1 -o graph -t PerPerson";
 	           
 	            HelpFormatter formatter = new HelpFormatter();
 	            formatter.printHelp("app", header, options, footer, true);
@@ -121,22 +121,57 @@ public class Reporter {
 	        
 	        if( line.hasOption( "path" ) ) {
 	        	if( line.hasOption( "t" ) ) {
-		        	String path1 = line.getOptionValue( "path" );
-		        	String type1 = line.getOptionValue( "t" );
-		        	String output1 = line.getOptionValue( "o" );
-		        	System.out.println(path1);
-		        	if (type1.equals("PerPerson")) {
-		        		//MainApp.runAppRap1(path1, output1, myMap);
-		        		MainApp.runAppRap1(path1);
-		        	}
-		        	if (type1.equals("PerProjekt")) {
-		        		//MainApp.runAppRap2(path1, output1, myMap);
-		        		MainApp.runAppRap2(path1);
-		        	}
+	        		if( line.hasOption( "o" ) ) {
+	        			String path1 = line.getOptionValue( "path" );
+		        		String type1 = line.getOptionValue( "t" );
+		        		String output1 = line.getOptionValue( "o" );
+		        		if (output1.equals("console")) {
+		        			if (type1.equals("PerPerson")) {
+		        				MainApp.runAppRap1(path1, output1, myMap);
+		        				//MainApp.runAppRap1(path1);
+		        			}
+		        			if (type1.equals("PerProjekt")) {
+		        				MainApp.runAppRap2(path1, output1, myMap);
+		        				//MainApp.runAppRap2(path1);
+		        			}
+		        		}else if(output1.equals("graph")){
+		        			if (type1.equals("PerPerson")) {
+		        				MainApp.runAppRap1(path1, output1, myMap);
+		        				//MainApp.runAppRap1(path1);
+		        			}
+		        			if (type1.equals("PerProjekt")) {
+		        				MainApp.runAppRap2(path1, output1, myMap);
+		        				//MainApp.runAppRap2(path1);
+		        			}
+		        		}else if(output1.equals("xls")){
+		        			if (type1.equals("PerPerson")) {
+		        				MainApp.runAppRap1(path1, output1, myMap);
+		        				//MainApp.runAppRap1(path1);
+		        			}
+		        			if (type1.equals("PerProjekt")) {
+		        				MainApp.runAppRap2(path1, output1, myMap);
+		        				//MainApp.runAppRap2(path1);
+		        			}
+		        		}else {
+		        			System.out.println("Dostępne typy wyniku to: console / graph / xls");
+		        		}
+	        		}
 
-		        }
-
-	        }
+	        		String path1 = line.getOptionValue( "path" );
+	        		String type1 = line.getOptionValue( "t" );
+	        		
+	        		if (type1.equals("PerPerson")) {
+	        			MainApp.runAppRap1(path1);
+	        			//MainApp.runAppRap1(path1);
+	        		}
+	        		if (type1.equals("PerProjekt")) {
+	        			MainApp.runAppRap2(path1);
+	        			//MainApp.runAppRap2(path1);
+	        		}
+	        	}else {
+	        	System.out.println("Musisz podać ścieżkę oraz typ raportu");}
+	        }else {
+	        System.out.println("Musisz podać ścieżkę oraz typ raportu");}
 	    }
 	    catch( ParseException exp ) {
 	        // oops, something went wrong
