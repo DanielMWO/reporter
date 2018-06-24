@@ -78,10 +78,11 @@ public class Reporter {
 	        
 	        // has the data argument been passed?
 	        if( line.hasOption( "data" ) ) {
-	        	if( line.hasOption( "type" ) ) {
+	        	if( line.hasOption( "t" ) ) {
 		        	String data1 = line.getOptionValue( "data" );
-		        	String type1 = line.getOptionValue( "type" );
-		        	if (type1 == "PerPerson") {
+		        	String type1 = line.getOptionValue( "t" );
+		        	System.out.println(data1);
+		        	if (type1.equals("PerPerson")) {
 		        		MainApp.runAppRap1(data1);
 		        	}
 		        	if (type1 == "PerProjekt") {
