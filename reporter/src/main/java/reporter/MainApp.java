@@ -23,14 +23,14 @@ public class MainApp {
 	private static ArrayList<File> files;
 	private static ArrayList<Record> data;
 	private static RaportOutput reportResult;
-	private static HashMap<String,String> options;
+	private static HashMap<String,String> options = new HashMap<String, String>();
 
 	// Podanie "root" dirtectory i odepbrtanie losty plik�w
 
 	private static ArrayList<File> getFiles(String root) {
 		FileFinder fileFinder = new FileFinder(root);
 		ArrayList<File> files = fileFinder.getFileList();
-		System.out.println(files.toString());
+		//System.out.println(files.toString());
 		return files;
 	}
 	// Przekazanie listy plik�w i otrzymanie wynikow
@@ -76,9 +76,9 @@ public class MainApp {
 	// raport typ1 suma po poszczeg�lnych pracownikach
 	public static void runAppRap1(String kalatlog) throws FileNotFoundException, IOException {
 		files = getFiles(kalatlog);
-		System.out.println(files.toString());
+		//System.out.println(files.toString());
 		data = getData(files);
-		System.out.println(data.toString());
+		//System.out.println(data.toString());
 		reportResult = getReport(1, data, options);
 		VisualizationConsole console = new VisualizationConsole();
 		console.PrintResult(reportResult);
@@ -181,6 +181,10 @@ public class MainApp {
 //		System.out.println("");System.out.println("");System.out.println("");
 //		
 		runAppRap2(root,"console",options);
+		runAppRap1(root,"console",options);
+		
+		
+		runAppRap2(root,"graph",options);
 		runAppRap1(root,"graph",options);
 //		
 	}
