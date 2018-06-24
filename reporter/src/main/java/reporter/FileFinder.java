@@ -49,9 +49,7 @@ public class FileFinder {
 		FileFinder ff = new FileFinder("src/main/ressources");
 		for (File f : ff.getFileList()) {
 			System.out.println(f.getAbsolutePath());
-		}
-<<<<<<< HEAD
-		
+		}		
 		IExcelParser parser = new ExcelParser();
 		
 		ArrayList<Record> records = new ArrayList<Record>();
@@ -67,7 +65,7 @@ public class FileFinder {
 		} catch (InvalidFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (IOException e) {		
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParseException e) {
@@ -79,8 +77,5 @@ public class FileFinder {
 			System.out.println(rec.FirstName);
 		}
 	}
-=======
 	}*/
-	
->>>>>>> a1856f2c6f3b05b7b3d603954bb6f501daad23d5
 }

@@ -23,6 +23,20 @@ public class Repository implements IRepository {
 		}		
 		return records;
 	}
+
+	public RaportOutput getRaportOneOutput() {
+		ArrayList<RaportField> fields = new ArrayList<RaportField>();
+		RaportOutput output;
+		
+		fields.add(new RaportField("Jan Kowalski", 8));
+		fields.add(new RaportField("Jacek Nowak", 33));
+		fields.add(new RaportField("Milena Milenowsa", 13));
+		fields.add(new RaportField("Anita Zuzannowska", 7));
+		
+		output = new RaportOutput("Raport 1", fields);
+		
+		return output;
+	}
 }
 
 
