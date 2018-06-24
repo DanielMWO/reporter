@@ -10,6 +10,8 @@ import java.util.Collections;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
+import VisualizationConsole.VisualizationConsole;
+
 public class FileFinder {
 	
 	private ArrayList<File> fileList;
@@ -46,11 +48,10 @@ public class FileFinder {
 	
 	/*public static void main(String[] args) {
 		//FileFinder ff = new FileFinder("c:/Users/Student38/Desktop/projekt/drzewko");
-		FileFinder ff = new FileFinder("src/main/ressources");
+		FileFinder ff = new FileFinder("src/main/resources");
 		for (File f : ff.getFileList()) {
 			System.out.println(f.getAbsolutePath());
 		}
-<<<<<<< HEAD
 		
 		IExcelParser parser = new ExcelParser();
 		
@@ -74,13 +75,12 @@ public class FileFinder {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		}		
+						
+		VisualizationConsole vis = new VisualizationConsole();
 		
-		for(Record rec : records) {
-			System.out.println(rec.FirstName);
-		}
+		vis.PrintResult();
+				
 	}
-=======
-	}*/
-	
->>>>>>> a1856f2c6f3b05b7b3d603954bb6f501daad23d5
+	}*/	
 }
