@@ -25,7 +25,7 @@ public class Report1 implements IReport{
 			raportFields.add(raportField);
 		}
 				
-		return new RaportOutput("Raport 1 \n Projekt \t liczba godzin", raportFields);
+		return new RaportOutput("Raport 1 \n Projekt \t liczba_godzin", raportFields);
 	}
 	
 	private boolean lineAppropriateForConsumption(Record record, HashMap<String, String> options) {
