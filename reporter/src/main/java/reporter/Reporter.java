@@ -2,6 +2,8 @@ package reporter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -62,14 +64,14 @@ public class Reporter {
 		
 		Options options = new Options();
 		options.addOption( help );
-		options.addOption( path );//
+		options.addOption( path );
 		options.addOption( years );
 		options.addOption( months );
 		options.addOption( days );
-		options.addOption( users );//
-		options.addOption( projects );//
+		options.addOption( users );
+		options.addOption( projects );
 		options.addOption( type );
-		options.addOption( output );//
+		options.addOption( output );
 			
 		
 		
@@ -81,6 +83,30 @@ public class Reporter {
 	        CommandLine line = parser.parse( options, args );
 	        
 	        // has the path argument been passed?
+	        
+	        Map<String, String> myMap = new HashMap<String, String>();
+	        
+	        if( line.hasOption( "y" ) ) {
+	        	String years1 = line.getOptionValue( "y" );
+	        	myMap.put("years", years1);
+	        }
+	        if( line.hasOption( "m" ) ) {
+	        	String months1 = line.getOptionValue( "m" );
+	        	myMap.put("months", months1);
+	        }
+	        if( line.hasOption( "d" ) ) {
+	        	String days1 = line.getOptionValue( "d" );
+	        	myMap.put("days", days1);
+	        }
+	        if( line.hasOption( "u" ) ) {
+	        	String users1 = line.getOptionValue( "u" );
+	        	myMap.put("users", users1);
+	        }
+	        if( line.hasOption( "p" ) ) {
+	        	String projects1 = line.getOptionValue( "p" );
+	        	myMap.put("projects", projects1);
+	        }
+
 	       if( line.hasOption( "help" ) ) {
 	        	
 
@@ -97,11 +123,14 @@ public class Reporter {
 	        	if( line.hasOption( "t" ) ) {
 		        	String path1 = line.getOptionValue( "path" );
 		        	String type1 = line.getOptionValue( "t" );
+		        	String output1 = line.getOptionValue( "o" );
 		        	System.out.println(path1);
 		        	if (type1.equals("PerPerson")) {
+		        		//MainApp.runAppRap1(path1, output1, myMap);
 		        		MainApp.runAppRap1(path1);
 		        	}
 		        	if (type1.equals("PerProjekt")) {
+		        		//MainApp.runAppRap2(path1, output1, myMap);
 		        		MainApp.runAppRap2(path1);
 		        	}
 
