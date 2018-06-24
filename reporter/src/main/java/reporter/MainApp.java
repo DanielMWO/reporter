@@ -81,7 +81,7 @@ public class MainApp {
 		//System.out.println(data.toString());
 		reportResult = getReport(1, data, options);
 		VisualizationConsole console = new VisualizationConsole();
-		console.PrintResult(reportResult);
+		console.PrintResult(reportResult, "pracownik");
 	}
 
 	
@@ -95,7 +95,7 @@ public class MainApp {
 		case "console" :
 		
 			VisualizationConsole console = new VisualizationConsole();
-			console.PrintResult(reportResult);
+			console.PrintResult(reportResult, "pracownik");
 			break;
 			
 		case "graph" :
@@ -105,7 +105,7 @@ public class MainApp {
 			
 		default :
 			VisualizationConsole console2 = new VisualizationConsole();
-			console2.PrintResult(reportResult);
+			console2.PrintResult(reportResult, "pracownik");
 			break;
 		}
 	}
@@ -123,7 +123,7 @@ public class MainApp {
 		//System.out.println(data.toString());
 		reportResult = getReport(2, data, options);
 		VisualizationConsole console = new VisualizationConsole();
-		console.PrintResult(reportResult);
+		console.PrintResult(reportResult, "projekt");
 	}
 	
 
@@ -137,7 +137,7 @@ public class MainApp {
 		case "console" :
 		
 			VisualizationConsole console = new VisualizationConsole();
-			console.PrintResult(reportResult);
+			console.PrintResult(reportResult, "projekt");
 			break;
 			
 		case "graph" :
@@ -158,7 +158,7 @@ public class MainApp {
 			
 		default :
 			VisualizationConsole console2 = new VisualizationConsole();
-			console2.PrintResult(reportResult);
+			console2.PrintResult(reportResult, "projekt");
 			break;
 		}
 	}
