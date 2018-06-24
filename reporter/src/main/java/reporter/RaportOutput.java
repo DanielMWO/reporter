@@ -1,14 +1,14 @@
 package reporter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class RaportOutput {
 
 	private String header;
 	
-	private ArrayList<RaportField> raportFields;
+	private List<RaportField> raportFields;
 	
-	public RaportOutput(String header, ArrayList<RaportField> raportFields) {
+	public RaportOutput(String header, List<RaportField> raportFields) {
 		this.header = header;
 		this.raportFields = raportFields;
 	}
@@ -17,7 +17,7 @@ public class RaportOutput {
 		return header;
 	}
 
-	public ArrayList<RaportField> getRaportFields() {
+	public List<RaportField> getRaportFields() {
 		return raportFields;
 	}
 	
