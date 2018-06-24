@@ -25,20 +25,20 @@ public class Report1 implements IReport{
 			raportFields.add(raportField);
 		}
 				
-		return new RaportOutput("Raport 1 \n Projekt \t liczba godzin", raportFields);
+		return new RaportOutput("Raport 1 \n Projekt \t liczba_godzin", raportFields);
 	}
 	
 	private boolean lineAppropriateForConsumption(Record record, HashMap<String, String> options) {
 		if (options.keySet().contains("years")) {
-			System.out.println("years filtering");
-			System.out.println(options.get("years"));
+			//System.out.println("years filtering");
+			//System.out.println(options.get("years"));
 			if (yearFilter(record, options.get("years"))) {
 				return false;
 			}
 		}
 		if (options.keySet().contains("months")) {
-			System.out.println("months filtering");
-			System.out.println(options.get("months"));
+			//System.out.println("months filtering");
+			//System.out.println(options.get("months"));
 			if (monthFilter(record, options.get("months"))) {
 				return false;
 			}
@@ -116,7 +116,7 @@ public class Report1 implements IReport{
 		}
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		Repository repository = new Repository();
 		ArrayList<Record> records = repository.getRecords();
@@ -133,6 +133,6 @@ public class Report1 implements IReport{
 			System.out.println(raportField.getRaportUnit()+"\t"+raportField.getNumberOfHours());
 		}
 		
-	}
+	}*/
 
 }
