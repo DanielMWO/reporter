@@ -1,4 +1,4 @@
-package VisualisastionConsole;
+package VisualizationConsole;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import reporter.RaportField;
 import reporter.RaportOutput;
 import reporter.Repository;
 
-public class VisualisationConsole {
+public class VisualizationConsole {
 	public void PrintResult() {
 		IRepository repo = new Repository();
 		
@@ -22,8 +22,8 @@ public class VisualisationConsole {
 		for(RaportField field : rowsList) {
 			List<String> columns = new ArrayList<String>();
 			
-			columns.add(field.raportUnit);
-			columns.add(String.valueOf(field.numberOfHours));	
+			columns.add(field.getRaportUnit());
+			columns.add(String.valueOf(field.getNumberOfHours()));	
 			
 			model.add((ArrayList<String>) columns);
 		}		

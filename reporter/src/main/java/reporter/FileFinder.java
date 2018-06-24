@@ -10,7 +10,7 @@ import java.util.Collections;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
-import VisualisastionConsole.VisualisationConsole;
+import VisualizationConsole.VisualizationConsole;
 
 public class FileFinder {
 	
@@ -53,7 +53,7 @@ public class FileFinder {
 			System.out.println(f.getAbsolutePath());
 		}		
 						
-		VisualisationConsole vis = new VisualisationConsole();
+		VisualizationConsole vis = new VisualizationConsole();
 		
 		vis.PrintResult();
 				

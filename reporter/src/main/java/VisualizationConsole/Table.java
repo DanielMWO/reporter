@@ -1,4 +1,4 @@
-package VisualisastionConsole;
+package VisualizationConsole;
 
 import java.util.ArrayList;
 import java.util.List;

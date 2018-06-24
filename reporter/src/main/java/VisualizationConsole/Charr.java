@@ -1,4 +1,4 @@
-package VisualisastionConsole;
+package VisualizationConsole;
 
 class Charr {
     

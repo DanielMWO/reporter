@@ -7,7 +7,7 @@ public class Report1 implements IReport{
 	
 	ArrayList<Record> records = Repository.getRecords();
 	
-	public ArrayList<Record> getReport(Date date, String task, String projectName, String firstName, String lastName) {
+	public RaportOutput getReport(Date date, String task, String projectName, String firstName, String lastName) {
 		
 		
 	
