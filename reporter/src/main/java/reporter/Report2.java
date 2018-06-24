@@ -25,6 +25,8 @@ public class Report2 implements IReport {
 			//RaportField raportField = new RaportField(projectName, projectHours);
 		}
 		
+		System.out.println("noga");
+		
 		return new RaportOutput(null, null);
 	}
 	
