@@ -53,39 +53,6 @@ public class FileFinder {
 		for (File f : ff.getFileList()) {
 			System.out.println(f.getAbsolutePath());
 		}
-		
-		IExcelParser parser = new ExcelParser();
-		
-		ArrayList<Record> records = new ArrayList<Record>();
-		
-		try {
-			records = parser.GetAllRecords(ff.getFileList());
-		} catch (EncryptedDocumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvalidFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-			
-						
-		VisualizationConsole vis = new VisualizationConsole();
-		
-		//vis.PrintResult();
-		
-		for (Record r:records)
-		{		
-			System.out.println(r.FirstName + " " + r.ProjectName + " " + r.Task);
-		}	
 
 	}
 }
