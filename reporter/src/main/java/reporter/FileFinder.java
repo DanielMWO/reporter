@@ -10,6 +10,8 @@ import java.util.Collections;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
+import VisualizationConsole.VisualizationConsole;
+
 public class FileFinder {
 	
 	private ArrayList<File> fileList;
@@ -73,13 +75,13 @@ public class FileFinder {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		}		
+						
+		VisualizationConsole vis = new VisualizationConsole();
 		
-		for(Record rec : records) {
-			System.out.println(rec.FirstName + " " + rec.ProjectName + " " + rec.Task);
-			
-		}
+		vis.PrintResult();
+				
 	}
 
-}
 	
 
