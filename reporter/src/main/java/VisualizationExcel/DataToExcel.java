@@ -94,7 +94,9 @@ public class DataToExcel {
 //		
 //		RaportOutput raportOutput = repo.getRaportOneOutput();
 //				
-//		writeRaportToExcel(raportOutput, columns);
+//		DataToExcel excel = new DataToExcel();
+//		
+//		excel.writeRaportToExcel(raportOutput, columns);
 //	}
 
 }
