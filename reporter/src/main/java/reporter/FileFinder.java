@@ -79,7 +79,7 @@ public class FileFinder {
 						
 		VisualizationConsole vis = new VisualizationConsole();
 		
-		vis.PrintResult();
+		//vis.PrintResult();
 				
 	}
 
