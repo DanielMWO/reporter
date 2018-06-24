@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import VisualizationConsole.VisualizationConsole;
+import VisualizationExcel.DataToExcel;
 import VisualizationPlots.VisualizationPlots;
 
 /**
@@ -79,6 +80,8 @@ public class MainApp {
 		data = getData(files);
 		System.out.println(data.toString());
 		reportResult = getReport(1, data, options);
+		VisualizationConsole console = new VisualizationConsole();
+		console.PrintResult(reportResult);
 	}
 
 	
@@ -143,7 +146,15 @@ public class MainApp {
 			break;
 		
 		case "pdf" :
-			//Czekamy na implemmentacje
+			//Czekamy na implemmentacje//
+			System.out.println("PDF-not implemented yet!");
+			
+		case "xls" :
+			
+			DataToExcel excel = new DataToExcel();
+			///excel.writeRaportToExcel(reportResult, columns);
+			System.out.println("inProgress");
+			break;
 			
 		default :
 			VisualizationConsole console2 = new VisualizationConsole();
@@ -152,9 +163,7 @@ public class MainApp {
 		}
 	}
 
-	public static void runAppRap2(String kalatlog, int rok) {
-	}
-
+	
 	
 	public static void main(String[] args) throws FileNotFoundException, IOException  {
 //		
