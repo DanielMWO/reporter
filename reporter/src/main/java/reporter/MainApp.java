@@ -141,6 +141,9 @@ public class MainApp {
 			VisualizationPlots plots = new VisualizationPlots();
 			plots.PrintPieChartResult(reportResult);
 			break;
+		
+		case "pdf" :
+			//Czekamy na implemmentacje
 			
 		default :
 			VisualizationConsole console2 = new VisualizationConsole();
