@@ -155,7 +155,7 @@ public class Reporter {
 		        		}else {
 		        			System.out.println("Dostępne typy wyniku to: console / graph / xls");
 		        		}
-	        		}
+	        		}else {
 
 	        		String path1 = line.getOptionValue( "path" );
 	        		String type1 = line.getOptionValue( "t" );
@@ -167,7 +167,7 @@ public class Reporter {
 	        		if (type1.equals("PerProjekt")) {
 	        			MainApp.runAppRap2(path1);
 	        			//MainApp.runAppRap2(path1);
-	        		}
+	        		}}
 	        	}else {
 	        	System.out.println("Musisz podać ścieżkę oraz typ raportu");}
 	        }else {
