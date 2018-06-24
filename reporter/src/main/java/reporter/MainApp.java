@@ -24,6 +24,7 @@ public class MainApp {
 	private static ArrayList<File> getFiles(String root) {
 		FileFinder fileFinder = new FileFinder(root);
 		ArrayList<File> files = fileFinder.getFileList();
+		System.out.println(files.toString());
 		return files;
 	}
 	// Przekazanie listy plik�w i otrzymanie wynikow
@@ -91,4 +92,15 @@ public class MainApp {
 	public static void runAppRap2(String kalatlog, int rok) {
 	}
 
+	
+	public static void main(String[] args) throws FileNotFoundException, IOException  {
+		
+		root = "src/main/resources/2012";
+		files = getFiles(root);
+		data = getData(files);
+		System.out.println("");
+		System.out.println(data.toString());
+		
+	}
+	
 }
