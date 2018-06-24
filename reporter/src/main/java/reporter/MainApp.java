@@ -141,6 +141,9 @@ public class MainApp {
 			VisualizationPlots plots = new VisualizationPlots();
 			plots.PrintPieChartResult(reportResult);
 			break;
+		
+		case "pdf" :
+			//Czekamy na implemmentacje
 			
 		default :
 			VisualizationConsole console2 = new VisualizationConsole();
@@ -169,7 +172,7 @@ public class MainApp {
 //		System.out.println("");System.out.println("");System.out.println("");
 //		
 		runAppRap2(root,"console",options);
-		runAppRap1(root,"console",options);
+		runAppRap1(root,"graph",options);
 //		
 	}
 	
