@@ -102,19 +102,22 @@ public class MainApp {
 		data = getData(files);
 		//System.out.println(data.toString());
 		reportResult = getReport(2, data, options);
-		switch (wizualizacja) {
-		case "1" :
+		switch (wizualizacja) { // console, graph, xls, pdf
+		case "console" :
 		
 			VisualizationConsole console = new VisualizationConsole();
 			console.PrintResult(reportResult);
+			break;
 			
-		case "2" :
+		case "graph" :
 			VisualizationPlots plots = new VisualizationPlots();
-			plots.PrintResult(); // add costam
+			plots.PrintPieChartResult(reportResult);
+			break;
 			
 		default :
 			VisualizationConsole console2 = new VisualizationConsole();
 			console2.PrintResult(reportResult);
+			break;
 		}
 	}
 
@@ -122,10 +125,12 @@ public class MainApp {
 	}
 
 	
-//	public static void main(String[] args) throws FileNotFoundException, IOException  {
+	public static void main(String[] args) throws FileNotFoundException, IOException  {
 //		
-//		root = "src/main/resources/2012";
-//		files = getFiles(root);
+		root = "src/main/resources/2012";
+//		
+		
+		files = getFiles(root);
 //		data = getData(files);
 //		System.out.println("");
 //		System.out.println(data.toString());
@@ -135,9 +140,9 @@ public class MainApp {
 //		
 //		System.out.println("");System.out.println("");System.out.println("");
 //		
-//		runAppRap2(root);
+		runAppRap2(root,"graph",options);
 //		
 //		
-//	}
+	}
 	
 }
