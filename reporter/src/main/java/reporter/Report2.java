@@ -22,9 +22,7 @@ public class Report2 implements IReport {
 			RaportField raportField = new RaportField(projectName, projectHours);
 			raportFields.add(raportField);
 		}
-		
-		System.out.println("noga");
-		
+				
 		return new RaportOutput("Raport 2 \n Projekt \t liczba godzin", raportFields);
 	}
 	

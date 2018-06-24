@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import VisualizationConsole.VisualizationConsole;
+
 /**
  * @author Daniel
  *
@@ -101,6 +103,11 @@ public class MainApp {
 		data = getData(files);
 		System.out.println("");
 		System.out.println(data.toString());
+		reportResult = getReport(2, data, options);
+		VisualizationConsole console = new VisualizationConsole();
+		console.PrintResult(reportResult);
+		
+		
 		
 	}
 	
