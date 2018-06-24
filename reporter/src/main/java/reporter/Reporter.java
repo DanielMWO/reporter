@@ -21,7 +21,7 @@ public class Reporter {
 		
 		Option path   = OptionBuilder.withArgName( "path" )
                 .hasArg()
-                .withDescription(  "use given data for report" )
+                .withDescription(  "use given path for report" )
                 .create( "path" );
 		
 		Option years   = OptionBuilder.withArgName( "years" )
@@ -76,7 +76,7 @@ public class Reporter {
 	        // parse the command line arguments
 	        CommandLine line = parser.parse( options, args );
 	        
-	        // has the data argument been passed?
+	        // has the path argument been passed?
 	        if( line.hasOption( "path" ) ) {
 	        	if( line.hasOption( "t" ) ) {
 		        	String path1 = line.getOptionValue( "path" );
@@ -105,12 +105,6 @@ public class Reporter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	        
-	        
-		
-		// TODO Auto-generated method stub
-		System.out.println("elo");
-	    
 
 	}
 }
