@@ -25,7 +25,7 @@ public class Report2 implements IReport {
 			raportFields.add(raportField);
 		}
 				
-		return new RaportOutput("Raport 2 \n Projekt \t liczba godzin", raportFields);
+		return new RaportOutput("Raport 2 \n Projekt \t liczba_godzin", raportFields);
 	}
 	
 	private boolean lineAppropriateForConsumption(Record record, HashMap<String, String> options) {
@@ -127,6 +127,7 @@ public class Report2 implements IReport {
 		RaportOutput raportOutput = report2.getReport(records, options);
 		
 		System.out.println(raportOutput.getHeader());
+		System.out.println(raportOutput.getRaportHeaders()[1]);
 		
 		for (RaportField raportField : raportOutput.getRaportFields()) {
 			System.out.println(raportField.getRaportUnit()+"\t"+raportField.getNumberOfHours());
