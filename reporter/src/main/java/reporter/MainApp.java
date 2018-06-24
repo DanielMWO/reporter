@@ -90,25 +90,30 @@ public class MainApp {
 		data = getData(files);
 		System.out.println(data.toString());
 		reportResult = getReport(2, data, options);
+		VisualizationConsole console = new VisualizationConsole();
+		console.PrintResult(reportResult);
 	}
 
 	public static void runAppRap2(String kalatlog, int rok) {
 	}
 
 	
-	public static void main(String[] args) throws FileNotFoundException, IOException  {
-		
-		root = "src/main/resources/2012";
-		files = getFiles(root);
-		data = getData(files);
-		System.out.println("");
-		System.out.println(data.toString());
-		reportResult = getReport(2, data, options);
-		VisualizationConsole console = new VisualizationConsole();
-		console.PrintResult(reportResult);
-		
-		
-		
-	}
+//	public static void main(String[] args) throws FileNotFoundException, IOException  {
+//		
+//		root = "src/main/resources/2012";
+//		files = getFiles(root);
+//		data = getData(files);
+//		System.out.println("");
+//		System.out.println(data.toString());
+//		reportResult = getReport(2, data, options);
+//		VisualizationConsole console = new VisualizationConsole();
+//		console.PrintResult(reportResult);
+//		
+//		System.out.println("");System.out.println("");System.out.println("");
+//		
+//		runAppRap2(root);
+//		
+//		
+//	}
 	
 }
