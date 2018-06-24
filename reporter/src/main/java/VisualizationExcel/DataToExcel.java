@@ -88,7 +88,7 @@ public class DataToExcel {
 	}
 
 /*public static void main(String[] args) throws IOException, InvalidFormatException {
-		//String[] columns = { "Employee", "Hours" };
+		String[] columns = { "Employee", "Hours" };
 		
 		Repository repo = new Repository();
 		
@@ -96,7 +96,7 @@ public class DataToExcel {
 				
 		DataToExcel excel = new DataToExcel();
 		
-		excel.writeRaportToExcel(raportOutput, raportOutput.getRaportHeaders());
+		excel.writeRaportToExcel(raportOutput, columns);//, raportOutput.getRaportHeaders());
 	}*/
 
 }
