@@ -81,6 +81,34 @@ public class MainApp {
 		reportResult = getReport(1, data, options);
 	}
 
+	
+	public static void runAppRap1(String kalatlog, String wizualizacja, HashMap<String, String> options) throws FileNotFoundException, IOException {
+		files = getFiles(kalatlog);
+		//System.out.println(files.toString());
+		data = getData(files);
+		//System.out.println(data.toString());
+		reportResult = getReport(1, data, options);
+		switch (wizualizacja) { // console, graph, xls, pdf
+		case "console" :
+		
+			VisualizationConsole console = new VisualizationConsole();
+			console.PrintResult(reportResult);
+			break;
+			
+		case "graph" :
+			VisualizationPlots plots = new VisualizationPlots();
+			plots.PrintPieChartResult(reportResult);
+			break;
+			
+		default :
+			VisualizationConsole console2 = new VisualizationConsole();
+			console2.PrintResult(reportResult);
+			break;
+		}
+	}
+	
+	
+	
 	// raport D:/Dane/ -y 2018 -m 01 03 12 -d monday -u Kowalski_Jan Nowak_Jan -p
 	// Projekt1 -t PerProjekt -o xls
 	// raport typ 2 suma po poszczeg�lnyhch projektach
@@ -140,8 +168,8 @@ public class MainApp {
 //		
 //		System.out.println("");System.out.println("");System.out.println("");
 //		
-		runAppRap2(root,"graph",options);
-//		
+		runAppRap2(root,"console",options);
+		runAppRap1(root,"console",options);
 //		
 	}
 	
