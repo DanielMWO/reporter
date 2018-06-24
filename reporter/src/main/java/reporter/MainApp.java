@@ -169,7 +169,7 @@ public class MainApp {
 //		System.out.println("");System.out.println("");System.out.println("");
 //		
 		runAppRap2(root,"console",options);
-		runAppRap1(root,"console",options);
+		runAppRap1(root,"graph",options);
 //		
 	}
 	
