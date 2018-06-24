@@ -14,8 +14,8 @@ public class RaportOutput {
 		this.header = header;
 		this.raportFields = raportFields;
 		raportHeaders = new String[2];
-		raportHeaders[0] = header.split(" ")[3];
-		raportHeaders[1] = header.split(" ")[5];
+		//raportHeaders[0] = header.split(" ")[3];
+		//raportHeaders[1] = header.split(" ")[5];
 	}
 
 	public String getHeader() {

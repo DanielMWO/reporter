@@ -30,15 +30,15 @@ public class Report2 implements IReport {
 	
 	private boolean lineAppropriateForConsumption(Record record, HashMap<String, String> options) {
 		if (options.keySet().contains("years")) {
-			System.out.println("years filtering");
-			System.out.println(options.get("years"));
+			//System.out.println("years filtering");
+			//System.out.println(options.get("years"));
 			if (yearFilter(record, options.get("years"))) {
 				return false;
 			}
 		}
 		if (options.keySet().contains("months")) {
-			System.out.println("months filtering");
-			System.out.println(options.get("months"));
+			//System.out.println("months filtering");
+			//System.out.println(options.get("months"));
 			if (monthFilter(record, options.get("months"))) {
 				return false;
 			}
