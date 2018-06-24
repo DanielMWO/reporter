@@ -19,10 +19,10 @@ public class Reporter {
 		
 		Option help = new Option ("help", "display Help");
 		
-		Option data   = OptionBuilder.withArgName( "data" )
+		Option path   = OptionBuilder.withArgName( "path" )
                 .hasArg()
-                .withDescription(  "use given data for report" )
-                .create( "data" );
+                .withDescription(  "use given path for report" )
+                .create( "path" );
 		
 		Option years   = OptionBuilder.withArgName( "years" )
                 .hasArg()
@@ -61,7 +61,7 @@ public class Reporter {
 		
 		Options options = new Options();
 		options.addOption( help );
-		options.addOption( data );//
+		options.addOption( path );//
 		options.addOption( years );
 		options.addOption( months );
 		options.addOption( days );
@@ -76,16 +76,17 @@ public class Reporter {
 	        // parse the command line arguments
 	        CommandLine line = parser.parse( options, args );
 	        
-	        // has the data argument been passed?
-	        if( line.hasOption( "data" ) ) {
-	        	if( line.hasOption( "type" ) ) {
-		        	String data1 = line.getOptionValue( "data" );
-		        	String type1 = line.getOptionValue( "type" );
-		        	if (type1 == "PerPerson") {
-		        		MainApp.runAppRap1(data1);
+	        // has the path argument been passed?
+	        if( line.hasOption( "path" ) ) {
+	        	if( line.hasOption( "t" ) ) {
+		        	String path1 = line.getOptionValue( "path" );
+		        	String type1 = line.getOptionValue( "t" );
+		        	System.out.println(path1);
+		        	if (type1.equals("PerPerson")) {
+		        		MainApp.runAppRap1(path1);
 		        	}
-		        	if (type1 == "PerProjekt") {
-		        		MainApp.runAppRap2(data1);
+		        	if (type1.equals("PerProjekt")) {
+		        		MainApp.runAppRap2(path1);
 		        	}
 
 		        }
@@ -104,12 +105,6 @@ public class Reporter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	        
-	        
-		
-		// TODO Auto-generated method stub
-		System.out.println("elo");
-	    
 
 	}
 }

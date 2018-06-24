@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import VisualizationConsole.VisualizationConsole;
+
 /**
  * @author Daniel
  *
@@ -84,24 +86,34 @@ public class MainApp {
 
 	public static void runAppRap2(String kalatlog) throws FileNotFoundException, IOException {
 		files = getFiles(kalatlog);
-		System.out.println(files.toString());
+		//System.out.println(files.toString());
 		data = getData(files);
-		System.out.println(data.toString());
+		//System.out.println(data.toString());
 		reportResult = getReport(2, data, options);
+		VisualizationConsole console = new VisualizationConsole();
+		console.PrintResult(reportResult);
 	}
 
 	public static void runAppRap2(String kalatlog, int rok) {
 	}
 
 	
-	public static void main(String[] args) throws FileNotFoundException, IOException  {
-		
-		root = "src/main/resources/2012";
-		files = getFiles(root);
-		data = getData(files);
-		System.out.println("");
-		System.out.println(data.toString());
-		
-	}
+//	public static void main(String[] args) throws FileNotFoundException, IOException  {
+//		
+//		root = "src/main/resources/2012";
+//		files = getFiles(root);
+//		data = getData(files);
+//		System.out.println("");
+//		System.out.println(data.toString());
+//		reportResult = getReport(2, data, options);
+//		VisualizationConsole console = new VisualizationConsole();
+//		console.PrintResult(reportResult);
+//		
+//		System.out.println("");System.out.println("");System.out.println("");
+//		
+//		runAppRap2(root);
+//		
+//		
+//	}
 	
 }
