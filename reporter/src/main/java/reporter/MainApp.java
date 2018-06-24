@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import VisualizationConsole.VisualizationConsole;
+import VisualizationPlots.VisualizationPlots;
 
 /**
  * @author Daniel
@@ -80,6 +81,34 @@ public class MainApp {
 		reportResult = getReport(1, data, options);
 	}
 
+	
+	public static void runAppRap1(String kalatlog, String wizualizacja, HashMap<String, String> options) throws FileNotFoundException, IOException {
+		files = getFiles(kalatlog);
+		//System.out.println(files.toString());
+		data = getData(files);
+		//System.out.println(data.toString());
+		reportResult = getReport(1, data, options);
+		switch (wizualizacja) { // console, graph, xls, pdf
+		case "console" :
+		
+			VisualizationConsole console = new VisualizationConsole();
+			console.PrintResult(reportResult);
+			break;
+			
+		case "graph" :
+			VisualizationPlots plots = new VisualizationPlots();
+			plots.PrintPieChartResult(reportResult);
+			break;
+			
+		default :
+			VisualizationConsole console2 = new VisualizationConsole();
+			console2.PrintResult(reportResult);
+			break;
+		}
+	}
+	
+	
+	
 	// raport D:/Dane/ -y 2018 -m 01 03 12 -d monday -u Kowalski_Jan Nowak_Jan -p
 	// Projekt1 -t PerProjekt -o xls
 	// raport typ 2 suma po poszczeg�lnyhch projektach
@@ -93,15 +122,46 @@ public class MainApp {
 		VisualizationConsole console = new VisualizationConsole();
 		console.PrintResult(reportResult);
 	}
+	
+
+	public static void runAppRap2(String kalatlog, String wizualizacja, HashMap<String, String> options) throws FileNotFoundException, IOException {
+		files = getFiles(kalatlog);
+		//System.out.println(files.toString());
+		data = getData(files);
+		//System.out.println(data.toString());
+		reportResult = getReport(2, data, options);
+		switch (wizualizacja) { // console, graph, xls, pdf
+		case "console" :
+		
+			VisualizationConsole console = new VisualizationConsole();
+			console.PrintResult(reportResult);
+			break;
+			
+		case "graph" :
+			VisualizationPlots plots = new VisualizationPlots();
+			plots.PrintPieChartResult(reportResult);
+			break;
+		
+		case "pdf" :
+			//Czekamy na implemmentacje
+			
+		default :
+			VisualizationConsole console2 = new VisualizationConsole();
+			console2.PrintResult(reportResult);
+			break;
+		}
+	}
 
 	public static void runAppRap2(String kalatlog, int rok) {
 	}
 
 	
-//	public static void main(String[] args) throws FileNotFoundException, IOException  {
+	public static void main(String[] args) throws FileNotFoundException, IOException  {
 //		
-//		root = "src/main/resources/2012";
-//		files = getFiles(root);
+		root = "src/main/resources/2012";
+//		
+		
+		files = getFiles(root);
 //		data = getData(files);
 //		System.out.println("");
 //		System.out.println(data.toString());
@@ -111,9 +171,9 @@ public class MainApp {
 //		
 //		System.out.println("");System.out.println("");System.out.println("");
 //		
-//		runAppRap2(root);
+		runAppRap2(root,"console",options);
+		runAppRap1(root,"graph",options);
 //		
-//		
-//	}
+	}
 	
 }
