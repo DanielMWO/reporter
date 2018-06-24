@@ -55,9 +55,9 @@ public class MainApp {
 		case 1:
 
 			IReport report = new Report1();
-			// ArrayList<Record> reportData = report.getReport(date, task, projectName,
+			RaportOutput result2 =  report.getReport(data, options);
 			// firstName, lastName);
-			return null;
+			return result2;
 
 		case 2:
 
