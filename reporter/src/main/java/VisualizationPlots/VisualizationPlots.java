@@ -1,6 +1,7 @@
 package VisualizationPlots;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -45,7 +46,8 @@ public class VisualizationPlots {
 		PieChart chart = plots.getChart(output);
 		
 		try {
-			BitmapEncoder.saveBitmap(chart, "./" + output.getHeader(), BitmapFormat.PNG);
+			BitmapEncoder.saveBitmap(chart, "./" + output.getFileName(), BitmapFormat.PNG);
+			Desktop.getDesktop().open(new File("./"+ output.getFileName()+".png").getParentFile());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

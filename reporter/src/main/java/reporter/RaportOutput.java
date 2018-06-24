@@ -21,6 +21,11 @@ public class RaportOutput {
 	public String getHeader() {
 		return header;
 	}
+	
+	public String getFileName() {
+		return header.split(" ", 2)[0];
+	}
+			
 
 	public List<RaportField> getRaportFields() {
 		return raportFields;
