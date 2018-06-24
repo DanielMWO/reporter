@@ -73,9 +73,4 @@ public class VisualizationPlots {
 		    }		   		 
 		    return chart;
 		  }
-	 
-	 public static void main(String[] args) {
-			VisualizationPlots vis = new VisualizationPlots();
-			vis.PrintPieChartResult(null);				
-		}
 }
