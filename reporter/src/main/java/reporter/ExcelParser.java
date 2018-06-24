@@ -21,7 +21,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelParser implements IExcelParser {
 
-	public ArrayList<Record> GetAllRecords(ArrayList<File> files) throws FileNotFoundException, IOException, EncryptedDocumentException, InvalidFormatException, ParseException {
+	public ArrayList<Record> GetAllRecords(ArrayList<File> files) throws IndexOutOfBoundsException, FileNotFoundException, IOException, EncryptedDocumentException, InvalidFormatException, ParseException {
 		
 		ArrayList<Record> records = new ArrayList<Record>();
 		
@@ -32,16 +32,26 @@ public class ExcelParser implements IExcelParser {
 				Row row;
 				Cell cell;
 								
-				int numberOfSheets = wb.getNumberOfSheets();
+				int numberOfSheets = wb.getNumberOfSheets();	
 				
-				for(int i = 0; i < numberOfSheets - 1; i++) {				
+				for(int i = 0; i < numberOfSheets ; i++) {				
 					sheet = wb.getSheetAt(i);
 					
-					int numberOfRows = sheet.getPhysicalNumberOfRows();					
+					int numberOfRows = sheet.getPhysicalNumberOfRows();		
 					
-					for(int j = 1; j < numberOfRows - 1; j++) {
+					if (numberOfRows<1) {
+						throw new IndexOutOfBoundsException ("Uwaga, pusty arkusz nr: "+ numberOfSheets + " w pliku: " + file);
+					}
+					
+					for(int j = 1; j < numberOfRows; j++) {
 						
 						row = sheet.getRow(j);
+						
+						/*for (int e = 0; e<=2; e++) {
+							if (row.getCell(e) == null) {
+								throw new IOException ("df"); 
+							}
+						}*/
 						
 						String fileName = file.getName().substring(0, file.getName().lastIndexOf("."));
 						
@@ -59,6 +69,9 @@ public class ExcelParser implements IExcelParser {
 					}					
 					
 				}			    		    
+			}
+			catch (Exception e) {
+				System.out.println("problem z wczytaniem pliku: " + file );
 			}
 		}
 		
