@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @author Daniel
@@ -17,7 +18,8 @@ public class MainApp {
 	private static String root;
 	private static ArrayList<File> files;
 	private static ArrayList<Record> data;
-	private static ArrayList<Record> reportResult;
+	private static RaportOutput reportResult;
+	private static HashMap<String,String> options;
 
 	// Podanie "root" dirtectory i odepbrtanie losty plik�w
 
@@ -43,7 +45,7 @@ public class MainApp {
 	}
 
 	// Przekazanie Danych do Raportu i odebranie paczki danych
-	private static ArrayList<Record> getReport(int type) {
+	private static RaportOutput getReport(int type, ArrayList<Record> data, HashMap<String,String> options) {
 		switch (type) {
 
 		case 1:
@@ -55,14 +57,13 @@ public class MainApp {
 
 		case 2:
 
-			IReport report2 = new Report1();
-			// ArrayList<Record> reportData = report.getReport(date, task, projectName,
-			// firstName, lastName);
-			return null;
+			IReport report2 = new Report2();
+			RaportOutput result =  report2.getReport(data, options);
+			
+			return result;
 
 		}
 
-		IReport report = new Report1();
 		// ArrayList<Record> reportData = report.getReport(date, task, projectName,
 		// firstName, lastName);
 		return null;
@@ -74,7 +75,7 @@ public class MainApp {
 		System.out.println(files.toString());
 		data = getData(files);
 		System.out.println(data.toString());
-		reportResult = getReport(1);
+		reportResult = getReport(1, data, options);
 	}
 
 	// raport D:/Dane/ -y 2018 -m 01 03 12 -d monday -u Kowalski_Jan Nowak_Jan -p
@@ -86,7 +87,7 @@ public class MainApp {
 		System.out.println(files.toString());
 		data = getData(files);
 		System.out.println(data.toString());
-		reportResult = getReport(2);
+		reportResult = getReport(2, data, options);
 	}
 
 	public static void runAppRap2(String kalatlog, int rok) {
