@@ -152,6 +152,15 @@ public class Reporter {
 		        				MainApp.runAppRap2(path1, output1, myMap);
 		        				//MainApp.runAppRap2(path1);
 		        			}
+		        		}else if(output1.equals("pdf")){
+		        			if (type1.equals("PerPerson")) {
+		        				MainApp.runAppRap1(path1, output1, myMap);
+		        				//MainApp.runAppRap1(path1);
+		        			}
+		        			if (type1.equals("PerProjekt")) {
+		        				MainApp.runAppRap2(path1, output1, myMap);
+		        				//MainApp.runAppRap2(path1);
+		        			}
 		        		}else {
 		        			System.out.println("Dostępne typy wyniku to: console / graph / xls");
 		        		}
