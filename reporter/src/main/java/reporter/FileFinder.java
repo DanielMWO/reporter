@@ -50,7 +50,6 @@ public class FileFinder {
 		for (File f : ff.getFileList()) {
 			System.out.println(f.getAbsolutePath());
 		}
-<<<<<<< HEAD
 		
 		IExcelParser parser = new ExcelParser();
 		
@@ -79,8 +78,5 @@ public class FileFinder {
 			System.out.println(rec.FirstName);
 		}
 	}
-=======
-	}*/
-	
->>>>>>> a1856f2c6f3b05b7b3d603954bb6f501daad23d5
+	}*/	
 }
