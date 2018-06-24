@@ -36,14 +36,14 @@ public class Report1 implements IReport{
 				return false;
 			}
 		}
-		/*if (options.keySet().contains("months")) {
+		if (options.keySet().contains("months")) {
 			System.out.println("months filtering");
 			System.out.println(options.get("months"));
 			if (monthFilter(record, options.get("months"))) {
 				return false;
-			};
+			}
 		}
-		if (options.keySet().contains("days")) {
+		/*if (options.keySet().contains("days")) {
 			System.out.println("days filtering");
 			System.out.println(options.get("days"));
 			if (dayFilter(record, options.get("days"))) {
@@ -80,12 +80,18 @@ public class Report1 implements IReport{
 	private boolean dayFilter(Record record, String string) {
 		// TODO Auto-generated method stub
 		return true;
-	}
+	}*/
 
 	private boolean monthFilter(Record record, String string) {
-		// TODO Auto-generated method stub
+		int recordMonth = record.Date.getMonth()+1;
+		String[] filteredMonths = string.split("");
+		for (String month : filteredMonths) {
+			if (Integer.parseInt(month) == recordMonth) {
+				return false;
+			}
+		}
 		return true;
-	}*/
+	}
 
 	private boolean yearFilter(Record record, String string) {
 		int recordYear = record.Date.getYear()+1900;
@@ -110,14 +116,15 @@ public class Report1 implements IReport{
 		}
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		Repository repository = new Repository();
 		ArrayList<Record> records = repository.getRecords();
 		
 		Report1 report1 = new Report1();
 		HashMap<String, String> options = new HashMap<String, String>();
-		options.put("years", "2016 2017");
+		//options.put("years", "2016 2017");
+		//options.put("months", "04");
 		RaportOutput raportOutput = report1.getReport(records, options );
 		
 		System.out.println(raportOutput.getHeader());
@@ -126,6 +133,6 @@ public class Report1 implements IReport{
 			System.out.println(raportField.getRaportUnit()+"\t"+raportField.getNumberOfHours());
 		}
 		
-	}
+	}*/
 
 }
