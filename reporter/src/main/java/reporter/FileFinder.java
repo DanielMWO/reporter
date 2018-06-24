@@ -1,8 +1,14 @@
 package reporter;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 public class FileFinder {
 	
@@ -44,6 +50,37 @@ public class FileFinder {
 		for (File f : ff.getFileList()) {
 			System.out.println(f.getAbsolutePath());
 		}
+<<<<<<< HEAD
+		
+		IExcelParser parser = new ExcelParser();
+		
+		ArrayList<Record> records = new ArrayList<Record>();
+		
+		try {
+			records = parser.GetAllRecords(ff.getFileList());
+		} catch (EncryptedDocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(Record rec : records) {
+			System.out.println(rec.FirstName);
+		}
+	}
+=======
 	}*/
 	
+>>>>>>> a1856f2c6f3b05b7b3d603954bb6f501daad23d5
 }
