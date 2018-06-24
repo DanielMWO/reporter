@@ -116,7 +116,7 @@ public class Report1 implements IReport{
 		}
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		Repository repository = new Repository();
 		ArrayList<Record> records = repository.getRecords();
@@ -133,6 +133,6 @@ public class Report1 implements IReport{
 			System.out.println(raportField.getRaportUnit()+"\t"+raportField.getNumberOfHours());
 		}
 		
-	}
+	}*/
 
 }
