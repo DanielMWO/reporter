@@ -101,6 +101,8 @@ public class MainApp {
 		data = getData(files);
 		System.out.println("");
 		System.out.println(data.toString());
+		reportResult = getReport(2, data, options);
+		
 		
 	}
 	
