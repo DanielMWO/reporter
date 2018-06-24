@@ -10,6 +10,8 @@ import java.util.Collections;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
+import VisualisastionConsole.VisualisationConsole;
+
 public class FileFinder {
 	
 	private ArrayList<File> fileList;
@@ -44,38 +46,16 @@ public class FileFinder {
 		return fileList;
 	}
 	
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		//FileFinder ff = new FileFinder("c:/Users/Student38/Desktop/projekt/drzewko");
-		FileFinder ff = new FileFinder("src/main/ressources");
+		FileFinder ff = new FileFinder("src/main/resources");
 		for (File f : ff.getFileList()) {
 			System.out.println(f.getAbsolutePath());
 		}		
-		IExcelParser parser = new ExcelParser();
+						
+		VisualisationConsole vis = new VisualisationConsole();
 		
-		ArrayList<Record> records = new ArrayList<Record>();
-		
-		try {
-			records = parser.GetAllRecords(ff.getFileList());
-		} catch (EncryptedDocumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvalidFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {		
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		for(Record rec : records) {
-			System.out.println(rec.FirstName);
-		}
+		vis.PrintResult();
+				
 	}
-	}*/
 }

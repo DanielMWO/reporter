@@ -34,7 +34,6 @@ public class Repository implements IRepository {
 		fields.add(new RaportField("Anita Zuzannowska", 7));
 		
 		output = new RaportOutput("Raport 1", fields);
-		
 		return output;
 	}
 }

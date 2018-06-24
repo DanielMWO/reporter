@@ -2,9 +2,9 @@ package reporter;
 
 public class RaportField {
 	
-	String raportUnit;
+	public String raportUnit;
 	
-	int numberOfHours;
+	public int numberOfHours;
 	
 	public RaportField(String raportUnit, int numberOfHours) {
 		this.raportUnit = raportUnit;
